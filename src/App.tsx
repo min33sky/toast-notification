@@ -1,3 +1,5 @@
+import Toast from './components/Toast';
+
 export default function App() {
   return (
     <div className="grid min-h-screen place-items-center bg-gradient-to-tr from-slate-800 to-slate-700">
@@ -5,20 +7,14 @@ export default function App() {
         Toasts
       </h1>
 
-      <div className="flex w-11/12 flex-col gap-4">
-        <button className="rounded-md bg-green-500 py-2 font-bold text-white transition hover:opacity-90">
-          Success
-        </button>
-        <button className="rounded-md bg-red-500 py-2 font-bold text-white transition hover:opacity-90">
-          Error
-        </button>
-        <button className="rounded-md bg-yellow-500 py-2 font-bold text-white transition hover:opacity-90">
-          Warning
-        </button>
-        <button className="rounded-md bg-blue-500 py-2 font-bold text-white transition hover:opacity-90">
-          Info
-        </button>
+      <div className="grid w-11/12 gap-4 md:grid-cols-4">
+        <button className="btn-success">Success</button>
+        <button className="btn-error">Error</button>
+        <button className="btn-warning">Warning</button>
+        <button className="btn-info">Info</button>
       </div>
+
+      <Toast />
     </div>
   );
 }
