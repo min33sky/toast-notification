@@ -1,23 +1,13 @@
-import { useEffect, useState } from 'react';
 import Toast from './components/Toast';
-
-export type ToastType = 'success' | 'error' | 'warning' | 'info';
+import { ToastType, useToastActions } from './contexts/toastContext';
 
 export default function App() {
-  const [toastType, setToastType] = useState<ToastType[]>([]);
-
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setToastType((prev) => [...prev, 'warning']);
-  //   }, 3000);
-
-  //   return () => clearTimeout(timeout);
-  // }, []);
+  const { createToast, removeToast } = useToastActions();
 
   const handleCreateToast = (type: ToastType) => {
-    setToastType((prev) => [...prev, type]);
+    const id = createToast(type);
     setTimeout(() => {
-      setToastType((prev) => prev.slice(1));
+      removeToast(id);
     }, 3000);
   };
 
@@ -51,7 +41,7 @@ export default function App() {
         </button>
       </div>
 
-      <Toast toasts={toastType} />
+      <Toast />
     </div>
   );
 }
