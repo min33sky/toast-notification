@@ -34,6 +34,10 @@
     @apply relative flex items-center justify-between overflow-hidden rounded-md bg-white p-4;
     animation: show_toast 0.3s ease forwards;
   }
+
+  .toast-hide {
+    animation: hide_toast 0.3s ease forwards;
+  }
 }
 
 @keyframes show_toast {

@@ -5,10 +5,10 @@ export default function App() {
   const { createToast, removeToast } = useToastActions();
 
   const handleCreateToast = (type: ToastType) => {
-    const id = createToast(type);
+    const toastId = createToast(type);
     setTimeout(() => {
-      removeToast(id);
-    }, 3000);
+      removeToast(toastId);
+    }, 3500);
   };
 
   return (
