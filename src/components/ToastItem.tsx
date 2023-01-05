@@ -37,6 +37,10 @@ export default function ToastItem({ type }: Props) {
     [],
   );
 
+  const closeToast = () => {
+    setHide(true);
+  };
+
   useEffect(() => {
     //? 2초후에 토스트를 숨기기
     setTimeout(() => {
@@ -50,7 +54,7 @@ export default function ToastItem({ type }: Props) {
         {toastType[type].icon}
         {toastType[type].text}
       </div>
-      <button>
+      <button onClick={closeToast}>
         <XMarkIcon className="h-5 w-5" />
       </button>
     </li>
